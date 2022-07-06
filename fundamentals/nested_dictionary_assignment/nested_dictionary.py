@@ -50,10 +50,7 @@ iterateDictionary2('first_name', students)
 
 iterateDictionary2('last_name', students)
 
-dojo = {
-    'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
-    'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
-}
+
 
 # def printInfo(some_dict):
 #     for key,value in some_dict.items():
@@ -89,11 +86,26 @@ dojo = {
 #             print(value[i])
 
 # printInfo(dojo)
+# 
+# def printInfo(some_dict):
+#     for key, list in some_dict.items():
+#         print(key,list)
+#         # print(len(some_dict.get(key)),key.upper())
+#         for i in list:
+#             print(i)
+
+# printInfo(dojo)
+
+dojo = {
+    'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
+    'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
+}
 
 def printInfo(some_dict):
-    for key, value in some_dict.items():
-        print(len(some_dict.get(key)),key.upper())
-        for i in value:
+    for key, list in some_dict.items():
+        # print(key,list)
+        print(len(some_dict[key]),key.upper())
+        for i in list:
             print(i)
 
 printInfo(dojo)
