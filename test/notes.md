@@ -84,3 +84,55 @@ is functions inside of classes
 
 ## self
 `refers to instance of the object`
+
+
+FLASK basic code
+
+# Pre-rec
+```
+pip install pipenv
+pipenv install flask (IN DESIRED LOCATION FOLDER)
+
+launch virtual env
+pipenvshell
+```
+mkdir makes a folder and touch makes a file
+need assignment folders for assignments
+rm -r -f assignmnet.txt and MAKE SURE YOU ARE IN THE RIGHT FOLDER
+
+1. create folder/directory for assignment
+2. navigate into the folder
+3. create virtual environment
+    install pipemv
+LOOK FOR pipfile and pipfile.lock
+
+from flask import Flask
+app = Flask(__name__)
+
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+
+// THIS NEEDS TO BE ON HE BOTTOM FO THE FILE
+if __name__=="__main__":
+    app.run(debug=True)
+
+
+localhost:5000
+127.0.0.1:5000
+
+view it locally
+
+ctrc c in the command prompt will stop the server
+press up arrow to restart with server.py
+
+pip freeze
+
+shows dependencies
+
+pipenvshell
+launches the environment
+
+
