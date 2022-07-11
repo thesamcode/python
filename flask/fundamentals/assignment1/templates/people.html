@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>My First Flask App</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/global.css') }}">
+    <!-- if there is a conflict in styling, it is whichever comes last that takes priority -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/people.css') }}">
+    <style>
+        table {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>My First Flask App</h1>
+    <table>
+        <head>
+            <tr>
+                <th>Num</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </head>
+        <tbody>
+            {% for num in range(age1) %}
+            {% if num % 2 == 0 %}
+            <tr>
+                <td>{{ num }}</td>
+                <td>{{ name1 }}</td>
+                <td>{{ age1 }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td>nothing</td>
+                <td>nothing</td>
+                <td>nothing</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

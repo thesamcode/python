@@ -1,0 +1,14 @@
+
+
+.c0, .c1 {
+    width: 20px;
+    height: 20px;
+}
+
+.c0 {
+    background-color: red;
+}
+
+.c1 {
+    background-color: black;
+}

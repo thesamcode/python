@@ -106,7 +106,7 @@ rm -r -f assignmnet.txt and MAKE SURE YOU ARE IN THE RIGHT FOLDER
     install pipemv
 LOOK FOR pipfile and pipfile.lock
 
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
