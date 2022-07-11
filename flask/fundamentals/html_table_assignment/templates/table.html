@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Table Assignment</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    <h1>Users</h1>
+    <table>
+        <head>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Full Name</th>
+        </head>
+        <tbody>
+            {% for user in usertable %}
+            <tr>
+                <td>{{ user['first_name'] }}</td>
+                <td>{{ user['last_name'] }}</td>
+                <td>{{ user['first_name'] + ' ' + user['last_name'] }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+</body>
+</html>
