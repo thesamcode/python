@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Post and Session</title>
+        <!-- <meta name="description" content=""> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href=""> -->
+    </head>
+    <body>
+        <h1>Post and Session</h1>
+        
+        <form action="/process_info" method="post">
+
+            <input type="hidden" name="secret" id="secret" value="keep it safe">
+            
+            <label for="credit_card_number">Credit Card Number</label>
+            <input type="text" name="credit_card_number" id="credit_card_number">
+            
+            <label for="exp_date">EXP Date</label>
+            <input type="text" name="exp_date" id="exp_date">
+            
+            <label for="item">Item Name</label>
+            <input type="text" name="item" id="item">
+            
+            <label for="item_cost">Cost of Item</label>
+            <input type="text" name="item_cost" id="item_cost">
+            
+            <button>Submit</button>
+
+            <a href="/tracking_info">Skip to tracking</a>
+        </form>
+        
+    </body>
+</html>
