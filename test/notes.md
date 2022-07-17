@@ -90,11 +90,12 @@ FLASK basic code
 
 # Pre-rec
 ```
-pip install pipenv
+*** pip install pipenv
 pipenv install flask (IN DESIRED LOCATION FOLDER)
 
 launch virtual env
-pipenvshell
+*** pipenv shell
+**** python server.py
 ```
 mkdir makes a folder and touch makes a file
 need assignment folders for assignments
@@ -135,4 +136,7 @@ shows dependencies
 pipenvshell
 launches the environment
 
+console.log always shows up client side, print always shows up in terminal (python)
+
+pipenv flask install pymysql
 
