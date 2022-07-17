@@ -1,0 +1,1 @@
+SELECT * FROM july_drivers_db.cars;

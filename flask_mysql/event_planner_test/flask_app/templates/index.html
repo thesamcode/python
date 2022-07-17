@@ -1,0 +1,131 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Event Planner</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/global.css') }}"> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}"> -->
+</head>
+<body>
+    <h1>Event Planner</h1>
+    <h3>Add User</h3>
+
+    <!-- declare a variable called messages
+    {% with messages = get_flashed_messages() %}     
+    check if there are any messages
+    {% if messages %}                            
+    loop through the messages
+    {% for message in messages %}            
+    <p>{{message}}</p>                   
+    display each message in a paragraph tag
+    {% endfor %}
+    {% endif %}
+    {% endwith %} -->
+
+
+    <form action="/user/create" method="post">
+    <div>
+        <input type="text" name="first_name" id="first_name" placeholder="First Name">
+        {% for message in get_flashed_messages(category_filter=["err_user_first_name"]) %}
+        <p class="alert alert-danger">{{ message }}</p>
+        {% endfor %}
+        </div>
+    <div>
+        <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+        {% for message in get_flashed_messages(category_filter=["err_user_last_name"]) %}
+        <p class="alert alert-danger">{{ message }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <input type="text" name="numandstreet" id="numandstreet" placeholder="Street Address">
+        {% for message in get_flashed_messages(category_filter=["err_user_num_and_street"]) %}
+        <p class="alert alert-danger">{{ message }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <input type="text" name="city" id="city" placeholder="City">
+        {% for message in get_flashed_messages(category_filter=["err_user_city"]) %}
+        <p class="alert alert-danger">{{ message }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <input type="text" name="state" id="state" placeholder="State">
+        {% for message in get_flashed_messages(category_filter=["err_user_state"]) %}
+        <p class="alert alert-danger">{{ message }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <input type="text" name="zip" id="zip" placeholder="Zip">
+        {% for message in get_flashed_messages(category_filter=["err_user_zip"]) %}
+        <p class="alert alert-danger">{{ message }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <input type="text" name="pw" id="pw" placeholder="Password">
+        {% for message in get_flashed_messages(category_filter=["err_user_pw"]) %}
+        <p class="alert alert-danger">{{ message }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <button>Add User</button>
+    </div>
+    </form>
+    
+    <h3>Check Passwords</h3>
+    <form action="/user/check_password" method="post">
+        <div>
+            <select name="id" id="id">
+                {% for user in all_users %}
+                    <option value="{{ user.id }}">{{ user.fullname }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <input type="text" name="pw" id="pw" placeholder="Password">
+            {% for message in get_flashed_messages(category_filter=["err_user_pw_login"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <button>Check</button>
+    </form>
+
+    <h3>All Users</h3>
+    <!-- {{ all_users }} -->
+    <table>
+        <head>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Created On</th>
+                <th>Action</th>
+            </tr>
+        </head>
+        <tbody>
+            {% for user in all_users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.fullname }}</td>
+                <td>{{ user.numandstreet}}</td>
+                <td>{{ user.city}}</td>
+                <td>{{ user.state}}</td>
+                <td>{{ user.zip}}</td>
+                <td>{{ user.created_on}}</td>
+                <td>
+                    <a href="">Edit</a> |
+                    <a href="">Delete</a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
