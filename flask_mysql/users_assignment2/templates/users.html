@@ -10,7 +10,10 @@
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}"> -->
 </head>
 <body>
+    <div>
     <h1>All Users</h1>
+    <a href="/users">Home</a>
+    </div>
     <table>
         <head>
             <tr>
@@ -18,6 +21,7 @@
                 <th>Full Name</th>
                 <th>Email</th>
                 <th>Created At</th>
+                <th>Actions</th>
             </tr>
         </head>
         <tbody>
@@ -27,6 +31,7 @@
                 <td>{{ user.fullname }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.created_at }}</td>
+                <td><a href="/user/view/{{ user.id }}">Show</a>|<a href="/user/edit/{{ user.id }}">Edit</a>|<a href="/user/destroy/{{ user.id }}">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
