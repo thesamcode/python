@@ -133,10 +133,13 @@ pip freeze
 
 shows dependencies
 
-pipenvshell
+pipenv shell
 launches the environment
 
 console.log always shows up client side, print always shows up in terminal (python)
 
-pipenv flask install pymysql
+pipenv install flask
 
+pipenv install PyMySQL flask
+
+python server.py

@@ -44,7 +44,7 @@ class User:
         # Iterate over the db results and create instances of friends with cls.
         for user in results:
             all_users.append( cls(user) )
-        return all_users
+            return all_users
 
     @classmethod
     def get_one(cls, data):
