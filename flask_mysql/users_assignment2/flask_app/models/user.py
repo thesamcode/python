@@ -1,5 +1,6 @@
 
-from mysqlconnection import connectToMySQL
+# from mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 
 # constructur, defining attributes (descriptions of the data pieces)
 class User:
