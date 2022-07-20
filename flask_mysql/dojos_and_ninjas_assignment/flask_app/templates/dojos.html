@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>All Dojos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/global.css') }}"> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}"> -->
+</head>
+<body>
+    <div>
+        <h2>New Dojo</h2>
+        <form action="/dojos/create_dojo" method="post">
+            <div>
+                <input type="text" name="name" id="name" placeholder="Dojo Name:">
+                <!-- {% for message in get_flashed_messages(category_filter=["err_user_first_name"]) %}
+                <p class="alert alert-danger">{{ message }}</p>
+                {% endfor %} -->
+            </div>
+            <div>
+                <button>Create</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <h2>All Dojos</h2>
+        <table>
+            <head>
+            </head>
+            <tbody>
+
+                {% for dojo in all_dojos %}
+                <tr>
+                    <td><a href="/dojos/{{ dojo.id }}">{{ dojo.name }}</a></td>
+                </tr>
+                {% endfor %}
+
+
+            </tbody>
+        </table>
+        <div>
+            <a href="/ninja/new">Add Ninja</a>
+        </div>
+    </div>
+</body>
+</html>

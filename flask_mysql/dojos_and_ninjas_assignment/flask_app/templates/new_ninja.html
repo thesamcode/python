@@ -1,20 +1,30 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Add User</title>
+    <title>New Ninja</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/global.css') }}"> -->
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}"> -->
 </head>
 <body>
     <div>
-    <h1>Add a New User</h1>
-    <a href="/users">Home</a>
+    <h1>New Ninja</h1>
     </div>
-    <form action="/user/create" method="post">
+    <form action="/ninja/create_ninja" method="post">
+        <p>Dojo:</p>
+        <div>
+                <select type="text" id= "dojo_name" name= "dojo_id">
+                    
+                    {% for dojo in all_dojos %}
+                    <option value = "{{ dojo.id }}">{{ dojo.name }}</option>
+                    {% endfor %}
+                </select>
+
+        </div>
         <div>
             <input type="text" name="first_name" id="first_name" placeholder="First Name:">
             <!-- {% for message in get_flashed_messages(category_filter=["err_user_first_name"]) %}
@@ -28,14 +38,17 @@
             {% endfor %} -->
         </div>
         <div>
-            <input type="text" name="email" id="email" placeholder="Email:">
+            <input type="num" name="age" id="age" placeholder="Age:">
             <!-- {% for message in get_flashed_messages(category_filter=["err_user_email"]) %}
             <p class="alert alert-danger">{{ message }}</p>
             {% endfor %} -->
         </div>
         <div>
-            <button>Create</button>
+            <input type="submit" value="Create">
         </div>
-        </form>
+    </form>
+    <div>
+    <a href="/dojos">Home</a>
+    </div>
 </body>
 </html>
