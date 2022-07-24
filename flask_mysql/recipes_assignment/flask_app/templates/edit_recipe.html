@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Edit Recipe</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div>
+        <h1>Edit Recipe!</h1>
+        <a href="/recipes/">back to recipes</a>
+        <a href="/user/logout">Logout</a>
+    </div>
+    <form action="/recipes/update" method="post">
+        <!-- this line below allows us to use a vriable to extract for the model and controller... -->
+        <input type="hidden" name="recipe_id" value="{{ recipe.id }}">
+        <div>
+            <textarea type="text" rows="1" cols="20" name="name" id="name">{{ recipe.name }}</textarea>
+            {% for message in get_flashed_messages(category_filter=["err_recipes_name"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <textarea type="text" rows="4" cols="40" name="description" id="description">{{ recipe.description }}</textarea>
+            {% for message in get_flashed_messages(category_filter=["err_recipes_description"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+            </div>
+        <div>
+            <textarea type="text" rows="4" cols="40" name="instructions" id="instructions">{{ recipe.instructions }}</textarea>
+            {% for message in get_flashed_messages(category_filter=["err_recipes_instructions"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <input type="date" name="date_cooked" id="date_cooked" value="{{ recipe.date_cooked }}">
+            {% for message in get_flashed_messages(category_filter=["err_recipes_date_cooked"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <p>Under 30 Minutes?</p>
+            {% if recipe.under_30 == 'yes' %}
+                <input type="radio" id="under_30_yes" checked="checked" name="under_30" value="yes">
+            {% else %}
+                <input type="radio" id="under_30_yes" name="under_30" value="yes">
+            {% endif %}
+            <label for="under_30_yes">Yes</label><br>
+            {% if recipe.under_30 == 'yes' %}
+                <input type="radio" id="under_30_no" name="under_30" value="no">
+            {% else %} 
+                <input type="radio" id="under_30_no" name="under_30" checked="checked" value="no">
+            {% endif %}
+            <label for="under_30_no">No</label><br>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

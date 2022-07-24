@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Recipe Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div>
+    <h1>Recipe Share</h1>
+    </div>
+    <div>
+        <h2>Register</h2>
+    </div>
+    <form action="/user/create_user" method="post">
+        <div>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" placeholder="">
+            {% for message in get_flashed_messages(category_filter=["err_users_first_name"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" placeholder="">
+            {% for message in get_flashed_messages(category_filter=["err_users_last_name"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="">
+            {% for message in get_flashed_messages(category_filter=["err_users_email"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password" placeholder="">
+            {% for message in get_flashed_messages(category_filter=["err_users_password"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <label for="password_confirm">Confirm Password:</label>
+            <input type="text" name="password_confirm" id="password_confirm" placeholder="">
+            {% for message in get_flashed_messages(category_filter=["err_users_password_confirm"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <div>
+        <h2>Log In</h2>
+    </div>
+    <form action="/user/login" method="post">
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="">
+            {% for message in get_flashed_messages(category_filter=["err_users_login"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password" placeholder="">
+            {% for message in get_flashed_messages(category_filter=["err_users_login_password"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

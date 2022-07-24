@@ -40,3 +40,5 @@ UPDATE drivers SET id = 8 WHERE id = 9;
 -- structure: DELETE FROM table_name WHERE id=#;
 DELETE FROM drivers WHERE id = 3;
 DELETE FROM drivers WHERE id in (4,6); 
+
+SET sql_safe_updates=0;

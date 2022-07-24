@@ -1,0 +1,32 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>View Recipe</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div>
+        {% for user in recipe.users %}
+        <h1>Welcome, {{ user.first_name }}</h1>
+        {% endfor %}
+        <a href="/recipes">back to recipes</a>
+        <a href="/user/logout">Logout</a>
+    </div>
+    <div>
+        <h2>{{ recipe.name }}</h2>
+        {% for user in recipe.users %}
+        <p><strong>Posted by:</strong> {{ user.first_name }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <p><strong>Description: </strong>{{ recipe.description }}</p>
+        <p><strong>Under 30 Minutes?: </strong>{{ recipe.under_30 }}</p>
+        <p><strong>Instructions: </strong>{{ recipe.instructions }}</p>
+        <p><strong>Date Made: </strong>{{ recipe.date_cooked }}</p>
+    </div>
+</body>
+</html>
