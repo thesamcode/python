@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>All Recipes</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div>
+        {% for recipe in all_recipes %}
+        <h1>Welcome, {{ recipe.user.first_name }}</h1>
+        {% endfor %}
+    </div>
+    <div>
+        <h2>All Posted Recipes:</h2>
+        <a href="/recipes/new">+ Create</a>
+        <a href="/user/logout">Logout</a>
+    </div>
+    <div>
+        <table>
+            <head>
+                <tr>
+                    <th>Name</th>
+                    <th>Under 30</th>
+                    <th>Posted By</th>
+                    <th>Actions</th>
+                </tr>
+            </head>
+            <tbody>
+                
+                {% for recipe in all_recipes %}
+                <tr>
+                    
+                    <td>{{ recipe.name }}</td>
+                    <td>{{ recipe.under_30 }}</td>
+                    <td>{{ recipe.user.first_name }}</td>
+                    
+                    <td><a href="/recipes/{{ recipe.id }}">view recipe</a>|<a href="/recipes/edit/{{ recipe.id }}">edit</a>|<a href="/recipes/delete">delete</a></td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
